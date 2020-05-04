@@ -6,9 +6,9 @@ CADDY_TAG=37b291f82c2083a378b698577640389686b0baf4
 
 if [ "$1" = "" ]; then
     docker run --rm \
-        -v $(pwd):/go/src/github.com/wadahiro/coredns-amazondns \
+        -v $(pwd):/go/src/github.com/rezaalavi/coredns-amazondns \
         -v $(pwd)/.tmp:/go \
-        -w /go/src/github.com/wadahiro/coredns-amazondns \
+        -w /go/src/github.com/rezaalavi/coredns-amazondns \
         golang:1.9 ./build.sh $TAG $CADDY_TAG
 else 
     echo "Building CoreDNS:$1 with amazondns..."
@@ -30,7 +30,21 @@ else
         exit 1
     fi
 
-    sed -i -e "/^route53:route53$/i amazondns:github.com/wadahiro/coredns-amazondns" plugin.cfg 
+    sed -i -e "/^route53:route53$/i amazondns:github.com/
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /coredns-amazondns" plugin.cfg 
 
     if [ "$?" -ne 0 ]; then
         echo "Failed"
@@ -43,8 +57,8 @@ else
     #make
     go build
 
-    cp coredns /go/src/github.com/wadahiro/coredns-amazondns/
+    cp coredns /go/src/github.com/rezaalavi/coredns-amazondns/
     tar cvzf coredns-amazondns_${VERSION}_linux-amd64.tgz coredns
-    mv coredns-*.tgz /go/src/github.com/wadahiro/coredns-amazondns/
+    mv coredns-*.tgz /go/src/github.com/rezaalavi/coredns-amazondns/
 fi
 
