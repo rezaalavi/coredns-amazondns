@@ -15,7 +15,7 @@ else
 
     go get github.com/coredns/coredns
 
-    cd /go/src/github.com/mholt/caddy
+    cd /go/src/github.com/caddyserver/caddy
 
     git checkout $2
 
